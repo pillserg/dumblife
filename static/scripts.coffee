@@ -29,7 +29,7 @@ get_adjanced_cells = (cell) ->
 
 
 decide_fate = (cell)->
-    adjanced_cells = get_adjanced_cells cell
+    adjanced_cells = $(cell).data('adjanced_cells')
     alive_adjanced_cells = (a_cell for a_cell in adjanced_cells when is_alive($ a_cell)) or []
 
     if not is_alive($ cell) and alive_adjanced_cells.length == 3
