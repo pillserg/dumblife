@@ -2,6 +2,19 @@
 <title>Lame game of life</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <script src="{{ url_for('static', filename='jquery-2.1.0.js') }}" type="application/javascript"></script>
+<script src="{{ url_for('static', filename='util.js') }}" type="application/javascript"></script>
+<div style="float:left">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <input id="speed" type="range" min="1" max="100" value="20">
+</div>
+<div style="float:right">
+    <form action="." method="get">
+        <input type="text" name="world_width" value="20">
+        <input type="text" name="world_height" value="20">
+        <input type="submit" value="Rerender">
+    </form>
+</div>
 <h2 style="text-align: center">Lame game of life</h2>
 <hr>
 {% for message in get_flashed_messages() %}

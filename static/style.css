@@ -27,7 +27,7 @@ h2              { font-size: 1.2em; }
 
 .cell.active {background: black}
 .cell:hover {
-    border: 2px solid chartreuse;
+    border: 1px solid chartreuse;
     cursor: cell;
 }
 

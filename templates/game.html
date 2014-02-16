@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
+<div id="universe">
 <table id="world" class="center">
-    {% for row_num in range(1, world_height) %}
+    {% for row_num in range(world_height) %}
         <tr id="row_{{ rom_num }}">
-            {% for column_num in range(1, world_width) %}
-                <td id="cell_{{ row_num }}_{{ column_num }}" class="cell">
+            {% for column_num in range(world_width) %}
+                <td id="cell_{{ column_num }}_{{ row_num }}" class="cell">
 
                 </td>
             {% endfor %}
@@ -12,9 +13,5 @@
     {% endfor %}
 
 </table>
-<div class="center">
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
-    <input id="speed" type="range" min="1" max="10">
 </div>
 {% endblock %}
