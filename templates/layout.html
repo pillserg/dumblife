@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Lame game of life</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='jquery-2.1.0.js') }}" type="application/javascript"></script>
+<h2 style="text-align: center">Lame game of life</h2>
+<hr>
+{% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+{% endfor %}
+{% block body %}{% endblock %}
+<script src="{{ url_for('static', filename='scripts.js') }}" type="application/javascript"></script>
