@@ -1,17 +1,42 @@
-{% extends "layout.html" %}
-{% block body %}
-<div id="universe">
-<table id="world" class="center">
-    {% for row_num in range(world_height) %}
-        <tr id="row_{{ rom_num }}">
-            {% for column_num in range(world_width) %}
-                <td id="cell_{{ column_num }}_{{ row_num }}" class="cell">
+<!doctype html>
+<title>Lame game of life</title>
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='jquery-2.1.0.js') }}" type="application/javascript"></script>
+    <script src="{{ url_for('static', filename='util.js') }}" type="application/javascript"></script>
+</head>
+<body>
+    <div style="float:left">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <input id="speed" type="range" min="1" max="100" value="20">
+    </div>
+    <div style="float:right">
+        <form action="." method="get">
+            <input type="text" name="world_width" value="{{ world_width }}">
+            <input type="text" name="world_height" value="{{ world_height }}">
+            <input type="submit" value="Rerender">
+        </form>
+    </div>
+    <h2 style="text-align: center">Lame game of life</h2>
+    <hr>
 
-                </td>
-            {% endfor %}
-        </tr>
-    {% endfor %}
+    <div id="universe">
+    <table id="world" class="center">
+        {% for row_num in range(world_height) %}
+            <tr id="row_{{ rom_num }}">
+                {% for column_num in range(world_width) %}
+                    <td
+                        id="cell_{{ column_num }}_{{ row_num }}"
+                        class="cell {{ 'active' if (column_num, row_num) in alive_cells else '' }}"
+                    >
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
 
-</table>
-</div>
-{% endblock %}
+    </table>
+    </div>
+
+<script src="{{ url_for('static', filename='scripts.js') }}" type="application/javascript"></script>
+</body>

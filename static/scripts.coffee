@@ -29,12 +29,13 @@ get_adjanced_cells = (cell) ->
 
 
 decide_fate = (cell)->
-    adjanced_cells = $(cell).data('adjanced_cells')
+    $cell = $ cell
+    adjanced_cells = $cell.data('adjanced_cells')
     alive_adjanced_cells = (a_cell for a_cell in adjanced_cells when is_alive($ a_cell)) or []
 
-    if not is_alive($ cell) and alive_adjanced_cells.length == 3
+    if not is_alive($cell) and alive_adjanced_cells.length == 3
         true
-    else if is_alive($ cell) and 2 <= alive_adjanced_cells.length <= 3
+    else if is_alive($cell) and 2 <= alive_adjanced_cells.length <= 3
         true
     else
         false
@@ -53,10 +54,11 @@ evolve = () ->
         $(cell).data('is_alive_at_next_step', decide_fate cell)
 
     for cell in world.find('.cell')
-        if $(cell).data('is_alive_at_next_step')
-            activate_cell $(cell)
+        $cell = $ cell
+        if $cell.data('is_alive_at_next_step')
+            activate_cell $cell
         else
-            deactivate_cell $(cell)
+            deactivate_cell $cell
 
 
     window.speed_timeout = setTimeout(evolve, SPEED_FACTOR / get_speed())
@@ -64,7 +66,6 @@ evolve = () ->
 
 
 init $ '#world'
-
 
 $('#universe').on 'click', '#world .cell',  toggle_cell
 $('#start').click ()-> evolve()
