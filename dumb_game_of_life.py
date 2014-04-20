@@ -25,6 +25,15 @@ def start_game():
         alive_cells=SIMPLE_PLANER
     )
 
+@app.route('/react')
+def start_react_game():
+    return render_template(
+        'react_game.html',
+        world_width=int(request.args.get('world_width', 30)),
+        world_height=int(request.args.get('world_height', 30)),
+        alive_cells=SIMPLE_PLANER
+    )
+
 if __name__ == '__main__':
     app.run()
 

@@ -1,0 +1,31 @@
+<!doctype html>
+<title>Lame game of life</title>
+<head>
+    <link rel=stylesheet type=text/css href="/dumblife/static/jq_style.css">
+    <script src="/dumblife/static/jquery-2.1.0.js" type="application/javascript"></script>
+    <script src="/dumblife/static/util.js" type="application/javascript"></script>
+    <script src="http://fb.me/react-with-addons-0.10.0.js" type="application/javascript"></script>
+</head>
+<body>
+    <div style="float:left">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="clear">Clear</button>
+        <button id="random">Random</button>
+        <input id="speed" type="range" min="1" max="100" value="20">
+    </div>
+    <div style="float:right">
+        <input id="world_width" type="text" name="world_width" value="30">
+        <input id="world_height" type="text" name="world_height" value="30">
+        <input id="rerender"type="submit" value="Rerender">
+    </div>
+    <h2 style="text-align: center">Lame Reactive game of life</h2>
+    <hr>
+
+    <div id="universe">
+    <table id="world" class="center">
+    </table>
+    </div>
+
+<script src="/dumblife/static/r_scripts.js" type="application/javascript"></script>
+</body>
